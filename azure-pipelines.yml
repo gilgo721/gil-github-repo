@@ -1,19 +1,144 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-trigger:
-- master
-
 pool:
-  vmImage: ubuntu-latest
-
+  name: Build
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: CopyFiles@1
+  displayName: 'Copy Files'
+  inputs:
+    SourceFolder: 'IA_Securities'
+    Contents: |
+     **\Account Segmentation (Quarterly).rdl
+     **\Accounts Opened Last Month.rdl    
+     **\Accounts With Buy Sell Restriction.rdl
+     **\Accounts Type Last Character.rdl
+     **\Accounts with Doc_Type 1C.rdl
+     **\Advisor_Attestation.rdl  
+     **\Advisor_Attestation_Terminated.rdl
+     **\Advisor_RepCode_Details.rdl
+     **\Advisor_RepCode_Exception_List.rdl
+     **\Advisor_UserID_Attestation.rdl
+     **\Annual_SADC_Report.rdl
+     **\AUA report for IAC fund (Monthly).rdl
+     **\Audit_ISM_AccountsBookOfRecord.rdl
+     **\Audit_ISM_W8_Bens_BookOfRecord.rdl
+     
+     **\Audit_DocID_61.rdl
+     **\ASC_3_Managed_Type_Assets.rdl
+     **\batch_add-doc_6A.rdl
+     **\CCM_Funds_Report.rdl
+     **\CERTS Active Users.rdl
+     **\CERTS_getAdvisors_and_Staff_BM_RM_BranchAddress.rdl
+     **\Certs_BranchLocation_BM_RVP.rdl
+     **\CERTS_Advisors_OutsideBusinessActivities_Report.rdl
+     **\Closed_Accounts_with_Values.rdl
+     **\Closed_Account_Daily_Activity.rdl
+     **\Commission Reports.rdl
+     **\Commission Statement by Advisor and Category.rdl
+     **\Concentration_Report.rdl
+     **\ConciliationCourtiers.rdl
+     **\Control Position Reporting Early Warning Report.rdl
+     **\Control_Accounts_Daily_Activity.rdl
+     **\Credit_Cash_and_Registered_Accounts.rdl
+     **\Clients_EmailIDs.rdl
+     **\Debit_Cash_and_Registered_Accounts_SD.rdl
+     **\Debit_Cash_and_Registered_Accounts_TD.rdl
+     **\Discretionary_Accounts.rdl
+     **\Doc_Types_22_31_with_Buy_Sell_Restrictions.rdl
+     **\DynamicFunds_Report.rdl
+     **\EDeliveryReport.rdl
+     **\ETF Report with Commission Daily.rdl
+     **\ETF Report with Commission.rdl
+     **\ETFandCKonClass28Report.rdl
+     **\FATCA QC Report.rdl
+     **\Fee-Based Programs Monthly Summary.rdl
+     **\Fee_Based_ASC_Exceptions.rdl
+     **\Fee_Based_Performance.rdl
+     **\Fee_Based_Velocity.rdl
+     **\Firm_Asset_Position_Report.rdl
+     **\Head_Office_User_Attestation.rdl
+     **\Head_Office_User_Attestation_Terminated.rdl
+     **\iA Wealth Advice Centre Report.rdl
+     **\IAS_Lending_Report.rdl
+     **\IAS_Lending_Report_Hist.rdl
+     **\iA_Securities_Diversiflex_Portfolios.rdl
+     **\iA_Securities_Diversiflex_Portfolios_Summary.rdl
+     **\iA_Securities_Strategic_Portfolios.rdl
+     **\iA_Securities_Strategic_Portfolios_Summary.rdl
+     **\Immigrant_Investors_Report.rdl
+     **\InActive_NonReg_Accounts_Yearend.rdl
+     **\InActive_Reg_Accounts_Yearend.rdl
+     **\Individual_Pension_Plan.rdl
+     **\Insider_Report.rdl
+     **\Inventory.rdl
+     **\Investor_Economics.rdl
+     **\ITF Accounts.rdl
+     **\Leveraged_and_Inverse_ETF_Holdings.rdl
+     **\Leverage_Disclosure_Agreements_Not_Carrying_Comments.rdl
+     **\List of Advisor Codes.rdl
+     **\List of Client Accounts.rdl
+     **\Managed Accounts Review.rdl
+     **\Managed Accounts with Debit Balance.rdl
+     **\Managed_Accounts.rdl
+     **\Managed_Accounts_Address_Changes.rdl
+     **\Managed_Accounts_Daily_Transfer_Activity.rdl
+     **\MFDA_ETF_Distribution_Report.rdl
+     **\MoniqueMorinQuarterlyReport.rdl
+     **\MonthlyInactiveAccounts_FeeReport.rdl
+     **\National_Branch_Reports.rdl
+     **\NBIN_Import_Stats.rdl
+     **\NBI_HISA.rdl
+     **\Negative_Equity.rdl
+     **\New Accounts Daily QC.rdl
+     **\New Accounts Opened.rdl
+     **\New Issue Purchase.rdl
+     **\OffshoreAccounts.rdl
+     **\Orphan_Croesus_Users.rdl
+     **\Orphan_NBIN_Users.rdl
+     **\OTC_Transactions.rdl
+     **\Partner_Report.rdl
+     **\Pledge_Accounts.rdl
+     **\POA_Authority NCAF Notes.rdl
+     **\POA_Authority.rdl
+     **\PortfolioAidList.rdl
+     **\PortfolioNotes.rdl
+     **\Private_Bonds_Report.rdl
+     **\Quarterly Transaction Report.rdl
+     **\Rep_AUA_By_Product.rdl
+     **\Rep_DebitInterest_Report.rdl
+     **\RESP accounts.rdl
+     **\Return Mail Report - Operations.rdl
+     **\Return_Mail_Report.rdl
+     **\Review Securities Within Short Accounts.rdl
+     **\RRIF_LIF_Accounts_With_SUNSTONE_WOF_Codes.rdl
+     **\Sales Production Report.rdl
+     **\SecuritiesNotes.rdl
+     **\Short_Equity.rdl
+     **\Short_Options_Report.rdl
+     **\Short_Position_Report.rdl
+     **\SIA Wealth Management AUM Report.rdl
+     **\StatistiqueQC.rdl
+     **\Sweep_Accounts_Carrying_Debit_Credit.rdl
+     **\Third_Party_Document_Exceptions.rdl
+     **\Trade_Blotter.rdl
+     **\Trading Authority NCAF Notes.rdl
+     **\Trading Authority Report.rdl
+     **\TransactionsNotes.rdl
+     **\Transfers_From_Leverage_To_Margin_Accounts_Report.rdl
+     **\Undermargin.rdl
+     **\User_AccessID_Attestation.rdl
+     **\Value_Added_Advisor_Exceptions.rdl
+     **\Vintage_Accounts.rdl
+     **\Warrants_Report.rdl
+     **\Wash_Report.rdl
+     **\Year End Account Lists.rdl
+     **\Audit_DocID77_W8_Bens_BookOfRecord.rdl
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\Reports'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: IAPublishBuildArtifacts@0
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    SystemCode: FW
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)\Reports'
+    ValidationType: Standard
+
+- task: IACompliance@2
+  displayName: 'IA Compliance'
